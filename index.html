@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NFT Data Generator</title>
+    <style>
+        body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #F5F5F5;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Header styling */
+    h1 {
+        color: #3F3D56;
+        text-align: center;
+        margin-top: 2rem;
+    }
+    
+    /* Form styling */
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    
+    label {
+        margin-top: 0.5rem;
+        color: #3F3D56;
+    }
+    
+    select {
+        margin-left: 1rem;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: none;
+    }
+    
+    button[type="submit"] {
+        background-color: #3F3D56;
+        color: white;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        margin-top: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #2C2A41;
+    }
+    
+    /* Download link styling */
+    p {
+        text-align: center;
+        margin-top: 1rem;
+    }
+    
+    a {
+        display: block;
+        text-align: center;
+        margin-top: 2rem;
+        color: #3F3D56;
+        text-decoration: none;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+        background-color: #F5F5F5;
+        border: 1px solid #3F3D56;
+        transition: background-color 0.2s ease-in-out;
+    }
+    
+    a:hover {
+        background-color: #1F3D56;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <h1>NINO Generator</h1>
+    <form method="POST">
+        <label for="nino_dropdown">Select number of NINOs to generate:</label>
+        <select name="nino_dropdown" id="nino_dropdown">
+            <option value="5k">5k</option>
+            <option value="10k">10k</option>
+            <option value="20k">20k</option>
+            <option value="50k">50k</option>
+        </select>
+        <button type="submit">Generate NINO</button>
+    </form>
+
+    <h1>Email Generator</h1>
+    <form method="POST">
+        <label for="email_dropdown">Select number of emails to generate:</label>
+        <select name="email_dropdown" id="email_dropdown">
+            <option value="5k">5k</option>
+            <option value="10k">10k</option>
+            <option value="20k">20k</option>
+            <option value="50k">50k</option>
+        </select>
+        <button type="submit">Generate Email</button>
+    </form>
+
+    <h1>Applicant Generator</h1>
+    <form method="POST">
+        <label for="applicant_dropdown">Select number of random applicant to generate:</label>
+        <select name="applicant_dropdown" id="applicant_dropdown">
+            <option value="500">500</option>
+            <option value="5k">5k</option>
+            <option value="10k">10k</option>
+            <option value="20k">20k</option>
+            <option value="50k">50k</option>
+        </select>
+        <button type="submit">Generate Applicant</button>
+    </form>
+
+    {% if download_link %}
+    <p>The generated CSV file is available for download:</p>
+    <a href="{{ download_link }}" download>DOWNLOAD: {{filename}}</a>
+    {% endif %}
+</body>
+</html>
