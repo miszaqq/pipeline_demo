@@ -1,0 +1,23 @@
+name: Build and push to Michal docker hub
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Log in to DockerHub
+      uses: docker/login-action@v1 
+      with:
+        username: michalkkk
+        password: dckr_pat_dnF0c-lLPe-PZwxtNAukPzizipk
+        
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
